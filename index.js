@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/api/predict', async (req, res) => {
+    console.log('taking request')
     const img_data = req.body;
     const result = await predictor(img_data)
     res.status(200).send({
