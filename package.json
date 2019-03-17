@@ -6,6 +6,7 @@
   "author": "Sheikh-Zubair",
   "license": "ISC",
   "scripts": {
+    "start": "node index.js",
     "server": "nodemon",
     "client": "cd mnist && npm start",
     "dev": "concurrently - kill-others \"npm run server\" \"npm run client\""
