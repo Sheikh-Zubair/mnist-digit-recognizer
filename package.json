@@ -1,0 +1,23 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "A canvas project for mnist dataset",
+  "main": "index.js",
+  "author": "Sheikh-Zubair",
+  "license": "ISC",
+  "scripts": {
+    "server": "nodemon",
+    "client": "cd mnist && npm start",
+    "dev": "concurrently - kill-others \"npm run server\" \"npm run client\""
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "python-shell": "^1.0.7"
+  }
+}
