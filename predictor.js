@@ -7,15 +7,16 @@ module.exports = (img_data) => {
     const options = {
         mode: 'text',
         //encodeing: 'utf8',
-        pythonPath: '/usr/bin/python3',
+        pythonPath: py,
         pythonOptions: ['-u'], // get print results in real-time
         scriptPath: './ml_model',
         args: [JSON.stringify(img_data)]
     };
-    console.log(options.pythonPath)
+    console.log(py)
     let pyshell = new PythonShell('data_wrangle.py', options)
     console.log('creating promise')
     return new Promise((resolve, reject) => {
+        console.log('waiting for pyshell')
         pyshell.on('message', function (msg) {
             console.log('got msg')
             console.log(msg)
