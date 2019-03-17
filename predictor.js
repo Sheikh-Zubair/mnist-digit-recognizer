@@ -13,8 +13,8 @@ module.exports = (img_data) => {
         args: [JSON.stringify(img_data)]
     };
     console.log(options.pythonPath)
-    console.log('creating promise')
     let pyshell = new PythonShell('data_wrangle.py', options)
+    console.log('creating promise')
     return new Promise((resolve, reject) => {
         pyshell.on('message', function (msg) {
             console.log('got msg')
