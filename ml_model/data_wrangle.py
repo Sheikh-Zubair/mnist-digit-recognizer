@@ -4,7 +4,6 @@ import re
 import io
 import sys
 import base64
-import matplotlib.pyplot as plt
 from PIL import Image
 #import json
 from sklearn.externals import joblib 
