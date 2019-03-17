@@ -10,6 +10,12 @@ from sklearn.externals import joblib
 
 img_data = sys.argv[1]
 
+def img_decode(data_uri):
+    img_str = re.search(r'base64,(.*)', data_uri).group(1)
+    img_bytes = io.BytesIO(base64.b64decode(img_str))
+    im = Image.open(img_bytes)
+    return im
+
 def wrangle(img_data):
     im = img_decode(img_data)
     arr = np.array(im)[:,:,3]
@@ -19,12 +25,6 @@ def wrangle(img_data):
     forest_clf = joblib.load(model_name)
     result = forest_clf.predict(reduced)
     return result
-
-def img_decode(data_uri):
-    img_str = re.search(r'base64,(.*)', data_uri).group(1)
-    img_bytes = io.BytesIO(base64.b64decode(img_str))
-    im = Image.open(img_bytes)
-    return im
 
 print(wrangle(img_data))
 
